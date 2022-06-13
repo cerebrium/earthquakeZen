@@ -1,0 +1,39 @@
+.nav {
+  display: grid;
+  grid-template-columns: 80px 1fr 80px;
+  grid-template-rows: 75px;
+  grid-template-areas: "logo title profile-link";
+}
+
+.nav .logo-container {
+  grid-area: logo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav .logo-container .logo-link {
+  width: 60%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav .logo-container .logo-link img {
+  width: 100%;
+  height: 100%;
+}
+
+.nav .title {
+  grid-area: title;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav .profile-link {
+  grid-area: profile-link;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

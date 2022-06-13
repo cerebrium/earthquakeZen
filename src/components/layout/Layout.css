@@ -1,0 +1,36 @@
+.Layout {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100vh;
+  width: 100vw;
+  background-color: #ededed;
+  font-family: sans-serif;
+  display: grid;
+  color: #444444;
+  grid-template-columns: auto;
+  grid-template-rows: 75px 1fr;
+  grid-template-areas:
+    "header"
+    "main";
+}
+
+/* 
+#ededed  - background color
+#777777  - header color
+#444444  - not sure
+#0011bb  - link color
+#6600cc - link hover color
+
+*/
+
+.header {
+  grid-column: header;
+  background-color: #777777;
+  height: 75px;
+}
+
+.main {
+  grid-column: main;
+  height: 100vh;
+}
