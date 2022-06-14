@@ -22,7 +22,11 @@ const Profile: React.FC = (): JSX.Element => {
             {labels.map((label: string, idx: number): JSX.Element => {
               let value = (profile as any)[keys[idx]];
               if (label === "Email") {
-                value = <a href={`mailto:${value}`}>{value}</a>;
+                value = (
+                  <a href={`mailto:${value}`} target="_blank">
+                    {value}
+                  </a>
+                );
               }
               return (
                 <tr>

@@ -7,7 +7,7 @@ Hello Realtor.com engineers!
 I hope that you enjoy the submission of this application. Running npm start should get this running in development.
 
 I enjoyed writing this, but I will admit I was surprised when the prompt asked not to use create-react-app! This uses webpack, and
-some of the troubles I had was with routing to an :id and having it now respond to my 404. But I was able to solve that by
+some of the troubles I had was with routing to an :id and having it not respond to my 404. But I was able to solve that by
 adding the publicPath. In production this is solved by the netlify.toml file.
 
 I also spent some time considering using esbuild, but it seems not to be quite ready for production.
@@ -45,11 +45,11 @@ Beyond the build, I thought a lot about file structure.
       - This was solved by trimming, finding first 2 letters for states, then making lowercase before comparing
       - Then given multiple instances of california (and others), the cities needed to be considered for 
       an actual valuable sort.
-         1. Options I considered included to use graph coordinates that were inside the earthquakes, I know 
+         1. Options I considered included: using graph coordinates that were inside the earthquakes, I know 
          that given lat long you can find quadkey using something like this: https://docs.microsoft.com/en-us/bingmaps/articles/bing-maps-tile-system
          However, since it wasn't in the prompt to do that, it was considered out of scope.
          2. The option decided was alphabetical based on city, when state is matching. 
 
-
-
 </pre>
+
+Thanks for spending the time to look at this!
