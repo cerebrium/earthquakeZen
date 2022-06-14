@@ -16,7 +16,7 @@
 }
 
 .detail-body .table-container .table tr,
-td {
+.detail-body td {
   padding: 4px 4px 4px 0px;
   text-align: left;
 }

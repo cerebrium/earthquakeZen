@@ -9,20 +9,20 @@
   margin: 0 auto;
 }
 
-.home-container .table {
+.home-container table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.home-container .table th,
-.table td {
+.home-container th,
+.home-container td {
   padding: 4px;
 }
 
-.home-container .table td:first-of-type {
+.home-container td:first-of-type {
   text-align: left;
 }
 
-.home-container .table td {
+.home-container td {
   text-align: center;
 }

@@ -17,7 +17,7 @@ const Nav: React.FC = () => {
       </section>
       <title className="title">Earthquake Zen Garden</title>
       <section className="profile-link">
-        <Link to="/profile">Profile</Link>
+        <Link to="/profile">Welcome Sally</Link>
       </section>
     </nav>
   );

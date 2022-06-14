@@ -1,6 +1,6 @@
 .nav {
   display: grid;
-  grid-template-columns: 80px 1fr 80px;
+  grid-template-columns: 80px 1fr 140px;
   grid-template-rows: 75px;
   grid-template-areas: "logo title profile-link";
 }
