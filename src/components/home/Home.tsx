@@ -1,8 +1,6 @@
-import React, { useMemo } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import { useFeatures } from "./useFeatures/useFeatures";
 import "./Home.css";
-import { formatDate } from "../../utils";
 import { FeatureComponent } from "./subComoponents";
 
 const Home: React.FC = () => {

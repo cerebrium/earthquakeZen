@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { data, Feature, dataMap } from "../../../data";
+import { useState } from "react";
+import { Feature, dataMap } from "../../../data";
 
 export type FeaturesResult = [
   (id: string) => void,

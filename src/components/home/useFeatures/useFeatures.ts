@@ -34,14 +34,26 @@ export const useFeatures = (): FeaturesResult => {
 
         There is an edge case where CA !== California
 
+        Case is handled by taking first two letters of state
+        and using these as a key for sorting. Removed white space
+        and made lowercase.
+
+        result CA -> ca, California -> ca
+
       */
       localFeatures.sort((a, b): 0 | 1 | -1 => {
         let stateA = a.properties[key].split(",");
         let stateB = b.properties[key].split(",");
-        if (stateA[1].trim().toLowerCase() < stateB[1].trim().toLowerCase()) {
+        if (
+          stateA[1].trim().substring(0, 2).toLowerCase() <
+          stateB[1].trim().substring(0, 2).toLowerCase()
+        ) {
           return -1;
         }
-        if (stateA[1].trim().toLowerCase() > stateB[1].trim().toLowerCase()) {
+        if (
+          stateA[1].trim().substring(0, 2).toLowerCase() >
+          stateB[1].trim().substring(0, 2).toLowerCase()
+        ) {
           return 1;
         }
         let cityA = stateA[0].split("of")[1].trim().toLowerCase();

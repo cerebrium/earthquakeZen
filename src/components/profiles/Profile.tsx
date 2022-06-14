@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import "./styles/Profile.css";
 import { profile } from "../../data/index";
 
