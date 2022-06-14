@@ -1,0 +1,28 @@
+.home-container {
+  text-align: center;
+}
+
+.home-container .table-container {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 0 auto;
+}
+
+.home-container .table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.home-container .table th,
+.table td {
+  padding: 4px;
+}
+
+.home-container .table td:first-of-type {
+  text-align: left;
+}
+
+.home-container .table td {
+  text-align: center;
+}

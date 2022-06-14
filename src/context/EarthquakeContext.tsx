@@ -393,7 +393,9 @@ type DataResult = [
   }
 ];
 
-const DataContext = React.createContext<DataResult | undefined>(undefined);
+export const DataContext = React.createContext<DataResult | undefined>(
+  undefined
+);
 
 export const DataParser: React.FC<any> = ({ children }) => {
   const [features, setFeatures] = useState<any>();
@@ -402,16 +404,21 @@ export const DataParser: React.FC<any> = ({ children }) => {
 
   useEffect(() => {
     setFeatures(baseData.features);
-    let tempMappedFeatures = {};
+    let tempMappedFeatures: any = {};
     baseData.features.forEach((feature) => {
-      if (!mappedFeatures[feature.id]) {
-        mappedFeatures[feature.id] = feature;
+      if (!tempMappedFeatures[feature.id]) {
+        tempMappedFeatures[feature.id] = feature;
       }
     });
     setMappedFeatures(tempMappedFeatures);
   }, []);
 
-  const findElement = (elementId: string) => {};
+  const findElement = (elementId: string) => {
+    const feature = mappedFeatures[elementId];
+    if (feature) {
+      setActiveFeature(feature);
+    }
+  };
 
   return (
     <DataContext.Provider value={[findElement, { features, activeFeature }]}>
