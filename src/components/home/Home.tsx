@@ -9,7 +9,7 @@ const Home: React.FC = () => {
 
   const sortedFeatures = useMemo(() => {
     if (features?.length) {
-      return features.map((feature, idx) => {
+      return features.map((feature) => {
         let eventDate = new Date(feature.properties.time);
         return (
           <tr>

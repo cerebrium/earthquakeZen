@@ -18,7 +18,9 @@
 .home-container td {
   padding: 4px;
 }
-
+.home-container th {
+  cursor: pointer;
+}
 .home-container td:first-of-type {
   text-align: left;
 }

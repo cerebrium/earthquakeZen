@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./Profile.css";
+import "./styles/Profile.css";
 import { profile } from "../../data/index";
 
 const Profile: React.FC = () => {
@@ -9,7 +9,7 @@ const Profile: React.FC = () => {
       <div className="content">
         <div className="image-container">
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/5/59/That_Poppy_profile_picture.jpg"
+            src={profile.avatarImage}
             alt="Sally profile picture"
             className="profile-image"
           />
@@ -39,7 +39,9 @@ const Profile: React.FC = () => {
                 <strong>Email</strong>
               </td>
               <td>
-                <a href={`mailto:${profile.email}`}>{profile.email}</a>
+                <a href={`mailto:${profile.email}`} target="_blank">
+                  {profile.email}
+                </a>
               </td>
             </tr>
             <tr>

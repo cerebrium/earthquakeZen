@@ -2,7 +2,7 @@ import React, { useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { useDetail } from "./useDetail/useDetail";
 import { formatDate } from "../../utils";
-import "./Details.css";
+import "./styles/Details.css";
 
 const Detail: React.FC = () => {
   const { id } = useParams();
@@ -12,6 +12,9 @@ const Detail: React.FC = () => {
   useEffect(() => {
     if (id) {
       findFeature(id);
+    } else {
+      const pathname: string[] = window.location.pathname.split("/");
+      findFeature(pathname[pathname.length - 1]);
     }
   }, [id]);
 
@@ -59,6 +62,8 @@ const Detail: React.FC = () => {
           </tbody>
         </table>
       );
+    } else {
+      return <p>Loading...</p>;
     }
   }, [activeFeature]);
 
