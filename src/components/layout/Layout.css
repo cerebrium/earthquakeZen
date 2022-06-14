@@ -88,7 +88,7 @@ video {
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article,
+/* article,
 aside,
 details,
 figcaption,
@@ -131,8 +131,9 @@ html {
   width: 100vw;
   background-color: #f5f5f5;
   overflow: hidden;
-}
-*/ .Layout {
+} */
+
+.Layout {
   position: absolute;
   left: 0px;
   top: 0px;
