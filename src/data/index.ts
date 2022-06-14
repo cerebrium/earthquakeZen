@@ -399,7 +399,7 @@ export const profile = {
 
 /*
 
-  To speed to request for single details,
+  To speed up requests for single details,
   a hashmap has been created to store the details
 
 */

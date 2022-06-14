@@ -41,43 +41,45 @@ export const useFeatures = (): FeaturesResult => {
         result CA -> ca, California -> ca
 
       */
-      localFeatures.sort((a, b): 0 | 1 | -1 => {
-        let stateA = a.properties[key].split(",");
-        let stateB = b.properties[key].split(",");
-        if (
-          stateA[1].trim().substring(0, 2).toLowerCase() <
-          stateB[1].trim().substring(0, 2).toLowerCase()
-        ) {
-          return -1;
-        }
-        if (
-          stateA[1].trim().substring(0, 2).toLowerCase() >
-          stateB[1].trim().substring(0, 2).toLowerCase()
-        ) {
-          return 1;
-        }
-        let cityA = stateA[0].split("of")[1].trim().toLowerCase();
-        let cityB = stateB[0].split("of")[1].trim().toLowerCase();
-        if (cityA < cityB) {
-          return -1;
-        }
-        if (cityA > cityB) {
-          return 1;
-        }
-        return 0;
-      });
-      setFeatures(localFeatures);
+      setFeatures((prev): Feature[] =>
+        prev.sort((a, b): 0 | 1 | -1 => {
+          let stateA = a.properties[key].split(",");
+          let stateB = b.properties[key].split(",");
+          if (
+            stateA[1].trim().substring(0, 2).toLowerCase() <
+            stateB[1].trim().substring(0, 2).toLowerCase()
+          ) {
+            return -1;
+          }
+          if (
+            stateA[1].trim().substring(0, 2).toLowerCase() >
+            stateB[1].trim().substring(0, 2).toLowerCase()
+          ) {
+            return 1;
+          }
+          let cityA = stateA[0].split("of")[1].trim().toLowerCase();
+          let cityB = stateB[0].split("of")[1].trim().toLowerCase();
+          if (cityA < cityB) {
+            return -1;
+          }
+          if (cityA > cityB) {
+            return 1;
+          }
+          return 0;
+        })
+      );
     } else {
-      localFeatures.sort((a, b): 0 | 1 | -1 => {
-        if (a.properties[key] < b.properties[key]) {
-          return -1;
-        }
-        if (a.properties[key] > b.properties[key]) {
-          return 1;
-        }
-        return 0;
-      });
-      setFeatures(localFeatures);
+      setFeatures((prev): Feature[] =>
+        prev.sort((a, b): 0 | 1 | -1 => {
+          if (a.properties[key] < b.properties[key]) {
+            return -1;
+          }
+          if (a.properties[key] > b.properties[key]) {
+            return 1;
+          }
+          return 0;
+        })
+      );
     }
   };
 

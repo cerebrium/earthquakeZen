@@ -1,7 +1,7 @@
 import React from "react";
-import { useFeatures } from "./useFeatures/useFeatures";
-import "./Home.css";
-import { FeatureComponent } from "./subComoponents";
+import { useFeatures } from "./hooks/useFeatures";
+import "./styles/Home.css";
+import { FeatureComponent } from "./components";
 
 const Home: React.FC = () => {
   const [sortFeatures, { features }] = useFeatures();
@@ -9,7 +9,16 @@ const Home: React.FC = () => {
   const handleClick = (
     e: React.MouseEvent<HTMLTableRowElement, MouseEvent>
   ): void => {
-    switch ((e.target as any).innerText) {
+    /*
+
+      using innerText and operating off of it can be seen as 
+      a security risk. However, since this switch statement is
+      only allowing certain text it should be safe. In a production 
+      environment I would opt to sanitize potential input though.
+
+    */
+
+    switch ((e.target as any).textContent) {
       case "Magnitude":
         sortFeatures("mag");
         break;
@@ -37,9 +46,11 @@ const Home: React.FC = () => {
             </tr>
           </thead>
           <tbody>
-            {features?.map((feature) => {
-              return <FeatureComponent feature={feature} />;
-            })}
+            {features?.map(
+              (feature): JSX.Element => (
+                <FeatureComponent feature={feature} />
+              )
+            )}
           </tbody>
         </table>
       </section>

@@ -1,9 +1,10 @@
 import React from "react";
-import { Detail } from "./components/detail";
-import { Home } from "./components/home";
-import { Profile } from "./components/profiles";
-import { Routes, Route } from "react-router-dom";
-import { Layout } from "./components/layout";
+import { Detail } from "./views/detail";
+import { Home } from "./views/home";
+import { Profile } from "./views/profiles";
+import { Routes, Route, Link } from "react-router-dom";
+import { Layout } from "./shared/layout";
+import { NotFound } from "./views/notFound";
 
 const App = () => {
   return (
@@ -12,14 +13,7 @@ const App = () => {
         <Route index element={<Home />} />
         <Route path="detail/:id" element={<Detail />} />
         <Route path="profile" element={<Profile />} />
-        <Route
-          path="*"
-          element={
-            <main style={{ padding: "1rem" }}>
-              <p>There's nothing here!</p>
-            </main>
-          }
-        />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );

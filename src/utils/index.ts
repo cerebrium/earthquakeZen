@@ -1,3 +1,11 @@
+/**
+ *
+ * @param date Date to be formatted
+ * @returns string with formatted date
+ * @example
+ * formatDate(new Date(1523647508250)); // returns "April 13, 2018, 12:25:08 PM"
+ */
+
 export const formatDate = (date: Date) => {
   const monthNames = [
     "January",
