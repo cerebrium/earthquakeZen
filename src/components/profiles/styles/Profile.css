@@ -3,14 +3,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: scroll;
 }
 
 .profile .content {
-  width: 40%;
   display: grid;
   grid-template-columns: 210px 1fr;
   grid-template-rows: 1fr;
   grid-template-areas: "profile-image profile-info";
+  overflow-y: scroll;
 }
 
 .profile .image-container {
@@ -43,10 +44,28 @@
   width: 100%;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
   .profile .content {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: "profile-image" "profile-info";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    width: 80%;
+  }
+  .profile .profile-info {
+    grid-area: profile-info;
+    width: 350px;
+  }
+
+  .profile .profile-info tr td:first-child {
+    padding: 10px;
+    min-width: 100px;
+    vertical-align: top;
+  }
+
+  .profile .profile-info tr td:last-child {
+    width: 100%;
   }
 }
