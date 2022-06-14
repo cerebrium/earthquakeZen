@@ -3,28 +3,10 @@ import { Link } from "react-router-dom";
 import { useFeatures } from "./useFeatures/useFeatures";
 import "./Home.css";
 import { formatDate } from "../../utils";
+import { FeatureComponent } from "./subComoponents";
 
 const Home: React.FC = () => {
   const [sortFeatures, { features }] = useFeatures();
-
-  const sortedFeatures = useMemo(() => {
-    if (features?.length) {
-      return features.map((feature) => {
-        let eventDate = new Date(feature.properties.time);
-        return (
-          <tr>
-            <td>
-              <Link to={`/detail/${feature.id}`}>
-                {feature.properties.place}
-              </Link>
-            </td>
-            <td>{feature.properties.mag}</td>
-            <td>{formatDate(eventDate)}</td>
-          </tr>
-        );
-      });
-    }
-  }, [features]);
 
   const handleClick = (
     e: React.MouseEvent<HTMLTableRowElement, MouseEvent>
@@ -56,7 +38,11 @@ const Home: React.FC = () => {
               <th>Time</th>
             </tr>
           </thead>
-          <tbody>{sortedFeatures}</tbody>
+          <tbody>
+            {features?.map((feature) => {
+              return <FeatureComponent feature={feature} />;
+            })}
+          </tbody>
         </table>
       </section>
     </section>

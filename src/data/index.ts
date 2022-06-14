@@ -397,6 +397,13 @@ export const profile = {
   bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
 };
 
+/*
+
+  To speed to request for single details,
+  a hashmap has been created to store the details
+
+*/
+
 export const dataMap: DataMap = {};
 data.features.forEach((feature): void => {
   if (!dataMap[feature.id]) {
