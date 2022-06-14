@@ -1,6 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
-
-type Feature = {
+export type Feature = {
   type: string;
   properties: {
     mag: number;
@@ -37,7 +35,11 @@ type Feature = {
   id: string;
 };
 
-const baseData = {
+export type DataMap = {
+  [id: string]: Feature;
+};
+
+export const data = {
   type: "FeatureCollection",
   metadata: {
     generated: 1523648330000,
@@ -385,54 +387,19 @@ const baseData = {
   bbox: [-158.1586, 33.5123333, 1.22, 145.8313, 64.3882, 163.6],
 };
 
-type DataResult = [
-  (elementId: string) => void,
-  {
-    features: Array<Feature> | undefined;
-    activeFeature: Feature | undefined;
-  }
-];
-
-export const DataContext = React.createContext<DataResult | undefined>(
-  undefined
-);
-
-export const DataParser: React.FC<any> = ({ children }) => {
-  const [features, setFeatures] = useState<any>();
-  const [activeFeature, setActiveFeature] = useState<Feature>();
-  const [mappedFeatures, setMappedFeatures] = useState<any>();
-
-  useEffect(() => {
-    setFeatures(baseData.features);
-    let tempMappedFeatures: any = {};
-    baseData.features.forEach((feature) => {
-      if (!tempMappedFeatures[feature.id]) {
-        tempMappedFeatures[feature.id] = feature;
-      }
-    });
-    setMappedFeatures(tempMappedFeatures);
-  }, []);
-
-  const findElement = (elementId: string) => {
-    const feature = mappedFeatures[elementId];
-    if (feature) {
-      setActiveFeature(feature);
-    }
-  };
-
-  return (
-    <DataContext.Provider value={[findElement, { features, activeFeature }]}>
-      {children}
-    </DataContext.Provider>
-  );
+export const profile = {
+  firstName: "Sally",
+  lastName: "Wang",
+  avatarImage:
+    "https://upload.wikimedia.org/wikipedia/commons/5/59/That_Poppy_profile_picture.jpg",
+  phone: "01-343-989-2345",
+  email: "sw@nowhere.ic.kp",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
 };
 
-export const useDataProvider = () => {
-  const context = useContext(DataContext);
-
-  if (context === undefined) {
-    throw new Error("useDataProvider must be used in the TreeParser");
+export const dataMap: DataMap = {};
+data.features.forEach((feature): void => {
+  if (!dataMap[feature.id]) {
+    (dataMap[feature.id] as any) = feature;
   }
-
-  return context;
-};
+});

@@ -42,3 +42,11 @@
 .profile .profile-info tr td:last-child {
   width: 100%;
 }
+
+@media screen and (max-width: 600px) {
+  .profile .content {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "profile-image" "profile-info";
+  }
+}
